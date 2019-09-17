@@ -1,0 +1,36 @@
+class CarroCorrida:
+    def __init__(self,numero_carro, nome_piloto, velocidade_maxima):
+        self.__numero_carro = numero_carro
+        self.__nome_piloto = nome_piloto
+        self.__velocidade_maxima = velocidade_maxima
+        self.__velocidade_atual = 0
+        self.__ligado = False
+
+    def get_ligado (self):
+        return self.__ligado
+   
+    def get_velocidade_atual (self):
+        return self.__velocidade_atual
+
+    def ligar (self):
+        self.__ligado = True
+     
+    def desligar (self):
+        self.__ligado = False
+
+    def acelerar (self, n):
+        if self.__ligado == True:
+            if self.__velocidade_atual + n <= self.__velocidade_maxima:
+                self.__velocidade_atual += n
+            else:
+                print("erro")
+    def frear (self):
+        if self.__ligado == True:
+            self.__velocidade_atual = 0
+
+carrocorrida = CarroCorrida (7, "bruna", 50)
+carrocorrida.ligar ()
+carrocorrida.acelerar(30)
+carrocorrida.frear ()
+print (carrocorrida.get_ligado())
+print (carrocorrida.get_velocidade_atual())
