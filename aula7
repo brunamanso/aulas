@@ -34,3 +34,33 @@ carrocorrida.acelerar(30)
 carrocorrida.frear ()
 print (carrocorrida.get_ligado())
 print (carrocorrida.get_velocidade_atual())
+
+ --------------//-------------------
+ 
+ class Funcionario:
+    def __init__(self, matricula, nome, salario):
+        self.__matricula = matricula
+        self.__nome = nome
+        self.__salario = salario
+
+    def get_matricula(self):
+        return self.__matricula
+
+    def get_nome(self):
+        return self.__nome
+
+    def get_salario(self):
+        return self.__salario
+
+    def set_matricula(self, matricula):
+        self.__matricula = matricula
+
+    def set_nome(self, nome):
+        self.__nome = nome
+
+    def set_salario(self, salario):
+        self.__salario = salario
+
+funcionario = Funcionario (11, "pablo", 800.00)
+funcionario.set_nome("bruna")
+print (funcionario.get_nome())
