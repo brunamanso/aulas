@@ -43,8 +43,11 @@ class CarroCorrida:
         self.__ligado = False
 
     def acelerar(self, num):
-        if self.__velocidade_atual + num <= self.__velocidade_maxima:
-            self.__velocidade_atual += num
+        if self.__ligado is True:
+            if self.__velocidade_atual + num <= self.__velocidade_maxima:
+                self.__velocidade_atual += num
+            else:
+                self.__velocidade_atual = self.__velocidade_maxima
 
     def frear(self):
         self.__velocidade_atual = 0
@@ -56,7 +59,6 @@ carrocorrida.acelerar(30)
 print(carrocorrida.get_velocidade_atual())
 carrocorrida.frear()
 print(carrocorrida.get_velocidade_atual())
-
 
  --------------//-------------------
  
