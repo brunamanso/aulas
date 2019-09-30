@@ -1,39 +1,62 @@
 class CarroCorrida:
-    def __init__(self,numero_carro, nome_piloto, velocidade_maxima):
-        self.__numero_carro = numero_carro
-        self.__nome_piloto = nome_piloto
-        self.__velocidade_maxima = velocidade_maxima
+    def __init__(self, numero, piloto, velocidade):
+        self.__numero_carro = numero
+        self.__nome_piloto = piloto
+        self.__velocidade_maxima = velocidade
         self.__velocidade_atual = 0
         self.__ligado = False
 
-    def get_ligado (self):
-        return self.__ligado
-   
-    def get_velocidade_atual (self):
+    def get_numero_carro(self):
+        return self.__numero_carro
+
+    def get_nome_piloto(self):
+        return self.__nome_piloto
+
+    def get_velocidade_maxima(self):
+        return self.__velocidade_maxima
+
+    def get_velocidade_atual(self):
         return self.__velocidade_atual
 
-    def ligar (self):
+    def get_ligado(self):
+        return self.__ligado
+
+    def set_numero_carro(self, num):
+        self.__numero_carro = num
+
+    def set_nome_piloto(self, num):
+        self.__nome_piloto = num
+
+    def set_velocidade_maxima(self, num):
+        self.__velocidade_maxima = num
+
+    def set_velocidade_atual(self, num):
+        self.__velocidade_atual = num
+
+    def set_ligado(self, num):
+        self.__ligado = num
+
+    def ligar(self):
         self.__ligado = True
-     
-    def desligar (self):
+
+    def desligar(self):
         self.__ligado = False
 
-    def acelerar (self, n):
-        if self.__ligado == True:
-            if self.__velocidade_atual + n <= self.__velocidade_maxima:
-                self.__velocidade_atual += n
-            else:
-                print("erro")
-    def frear (self):
-        if self.__ligado == True:
-            self.__velocidade_atual = 0
+    def acelerar(self, num):
+        if self.__velocidade_atual + num <= self.__velocidade_maxima:
+            self.__velocidade_atual += num
 
-carrocorrida = CarroCorrida (7, "bruna", 50)
-carrocorrida.ligar ()
+    def frear(self):
+        self.__velocidade_atual = 0
+
+
+carrocorrida = CarroCorrida(7, "bruna", 50)
+carrocorrida.ligar()
 carrocorrida.acelerar(30)
-carrocorrida.frear ()
-print (carrocorrida.get_ligado())
-print (carrocorrida.get_velocidade_atual())
+print(carrocorrida.get_velocidade_atual())
+carrocorrida.frear()
+print(carrocorrida.get_velocidade_atual())
+
 
  --------------//-------------------
  
