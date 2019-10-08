@@ -1,0 +1,71 @@
+class Animal:
+
+    def __init__(self, nome, comprimento, patas, cor, velocidade):
+        self.nome = nome
+        self.comprimento = comprimento
+        self.patas = patas
+        self.cor = cor
+        self.velocidade = velocidade
+
+    def exibir (self):
+        print("Nome:", self.nome)
+        print("Comprimento:", self.comprimento)
+        print("Patas:", self.patas)
+        print("Cor:", self.cor)
+        print("Velocidade:", self.velocidade)
+
+
+class Peixe(Animal):
+    def __init__(self, nome, comprimento, cor, velocidade, caracteristica):
+        super().__init__(nome, comprimento, 0, cor, velocidade)
+        self.caracteristica = caracteristica
+
+    def exibir_peixe(self):
+        print("Nome:", self.nome)
+        print("Comprimento:", self.comprimento)
+        print("Patas:", self.patas)
+        print("Cor:", self.cor)
+        print("Velocidade:", self.velocidade)
+        print("Caracteristica:", self.caracteristica)
+
+dourado = Peixe("Pablo", "50cm", "amarelo", "10km", "peixe pocpoc")
+dourado.exibir_peixe()
+dog = Animal("Mel", 0.50, 4, "mel", 25)
+dog.exibir()
+
+-------------//--------------------
+
+
+class Motor:
+    def __init__(self, cilindrada, potencia):
+        self.cilindrada = cilindrada
+        self.potencia = potencia
+
+
+class Veiculo:
+    def __init__(self, peso, velocidade_maxima, preco, tipo_motor):
+        self.peso = peso
+        self.velocidade_maxima = velocidade_maxima
+        self.preco = preco
+        self.tipo_motor = tipo_motor
+
+
+class CarroPasseio (Veiculo):
+    def __init__(self, peso, velocidade_maxima, preco, tipo_motor, cor, modelo):
+        super().__init__(peso, velocidade_maxima, preco, tipo_motor)
+        self.cor = cor
+        self.modelo = modelo
+
+
+class Caminhao (Veiculo):
+    def __init__(self, peso, velocidade_maxima, preco, tipo_motor, tonelada, altura, comprimento):
+        super().__init__(peso, velocidade_maxima, preco, tipo_motor)
+        self.tonelada = tonelada
+        self.altura = altura
+        self.comprimento = comprimento
+
+
+motor = Motor(200, 300)
+
+ferrari = CarroPasseio(1000, 300, 1000000000, motor, "vermelha", "ferrari 2020")
+print(ferrari.preco)
