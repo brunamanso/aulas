@@ -1,0 +1,80 @@
+# Bruna Manso RA: 1900726
+# Pablo Kalil RA: 1900997
+
+class Curso:
+    def __init__(self, codigo, nome):
+        self.codigo = codigo
+        self.nome = nome
+
+
+class Disciplina:
+    def __init__(self, codigo, nome, carga_horaria, curso):
+        self.codigo = codigo
+        self.nome = nome
+        self.carga_horaria = carga_horaria
+        self.curso = curso
+
+
+class Aluno:
+    def __init__(self, nome):
+        self.nome = nome
+        self.__disciplina = []
+
+    def incluir_disciplina(self, disciplina):
+        if len(self.__disciplina) > 5:
+            raise ValueError
+        else: 
+            self.__disciplina.append(disciplina)
+
+    def get_disciplina(self):
+        return self.__disciplina
+
+class Funcionario:
+    def __init__(self, id, nome, email, telefone, cpf):
+        self.id = id
+        self.nome = nome
+        self.email = email
+        self.telefone = telefone
+        self.cpf = cpf
+
+class Coordenador(Funcionario):
+    def __init__(self, id, nome, email, telefone, cpf):
+        super().__init__(id, nome, email, telefone, cpf)
+        self.__curso = []
+
+    def incluir_curso(self, curso):
+        self.__curso.append(curso)
+
+    def get_curso(self):
+        return self.__curso
+
+    
+class Professores(Funcionario):
+    def __init__(self, id, nome, email, telefone, cpf, titulacao, area):
+        super().__init__(id, nome, email, telefone, cpf)
+        self.titulacao = titulacao
+        self.area = area
+        self.__disciplina = []
+
+    def incluir_disciplina(self, disciplina):
+        soma = 0
+        for d in self.__disciplina:
+            soma += d.carga_horaria
+
+        if soma + disciplina.carga_horaria > 200:
+            raise ValueError
+        else:
+            self.__disciplina.append(disciplina)
+
+    def get_disciplina(self):
+        return self.__disciplina
+
+curso = Curso(1, "Sistema de Informaçao")
+disciplina = Disciplina(1, "matematica", 40, curso)
+aluno = Aluno("bruna")
+coordenador = Coordenador(22, "jose", "bruna@email", 99556622, 3178848558)
+professor = Professores(22, "jose", "bruna@email", 99556622, 3178848558, "mestre", "bd")
+aluno.incluir_disciplina(disciplina)
+aluno.incluir_disciplina(disciplina)
+for d in aluno.get_disciplina():
+    print(d.nome)
