@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="css/calculadora.css">
+    <!-- Adicione aqui seus scripts para testar -->
+<script>
+function exibeNumero(num) {
+	document.getElementById("resultado").value = document.getElementById("resultado").value + num;
+}
+
+
+function calcule() {
+//Codigo para calcular o visor
+	var res = 0;
+	res = document.getElementById ("resultado").value;
+	document.getElementById ("resultado").value= '';
+	document.getElementById ("resultado").value = eval (res);
+	
+	
+}
+
+</script>
+</head>
+<body>
+    <div class="calculadora">
+        <input type="text" id="resultado" />
+
+        <button class="numero" onclick="exibeNumero(this.value)" value="9">9</button>
+        <button class="numero" onclick="exibeNumero(this.value)" value="8">8</button>
+        <button class="numero" onclick="exibeNumero(this.value)" value="7">7</button>
+        <button class="operacao somar" onclick="exibeNumero(this.value)" value="+">+</button>
+        
+        <button class="numero" onclick="exibeNumero(this.value)" value="6">6</button>
+        <button class="numero" onclick="exibeNumero(this.value)" value="5">5</button>
+        <button class="numero" onclick="exibeNumero(this.value)" value="4">4</button>
+        <button class="operacao subtrair" onclick="exibeNumero(this.value)" value="-">-</button>
+        
+        <button class="numero" onclick="exibeNumero(this.value)" value="3">3</button>
+        <button class="numero" onclick="exibeNumero(this.value)" value="2">2</button>
+        <button class="numero" onclick="exibeNumero(this.value)" value="1">1</button>
+        <button class="operacao multiplicar" onclick="exibeNumero(this.value)" value="*">*</button>
+        
+        <button class="numero" onclick="exibeNumero(this.value)" value="0">0</button>
+        <button class="numero" onclick="exibeNumero(this.value)" value=".">.</button>
+        <button class="resultar" onclick="calcule();" >=</button>
+        <button class="operacao dividir" onclick="exibeNumero(this.value)" value="/">/</button>
+    </div>
+</body>
+</html>
