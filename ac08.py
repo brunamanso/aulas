@@ -48,7 +48,7 @@ class Funcionario(Pessoa):
         self.imposto = 0.05
 
     def calcular_imposto(self):
-        return self.salario - (self.salario * self.imposto)
+        return self.salario * self.imposto
 
     def exibir_dados(self):
         print("Nome: ", self.nome)
@@ -64,7 +64,7 @@ class Gerente(Funcionario):
         self.imposto = 0.07
 
     def calcular_imposto(self):
-        return self.salario - (self.salario * self.imposto)
+        return self.salario * self.imposto
 
     def exibir_dados(self):
         super().exibir_dados()
