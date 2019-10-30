@@ -1,0 +1,74 @@
+SELECT
+	CR.sigla,
+	TR.semestre,
+	TR.letra,
+	COUNT(*) AS 'alunos matriculados'
+FROM
+	Aluno AS AL JOIN
+	Turma AS TR ON AL.id_turma = TR.id JOIN
+	DisciplinaOfertada AS DO ON TR.id = DO.id_turma JOIN
+	Curso AS CR ON TR.id_curso = CR.id
+GROUP BY
+	CR.sigla,
+	TR.semestre,
+	TR.letra
+
+------------------------------------------------------------------------------------------------------------
+
+SELECT
+	CR.sigla,
+	TR.semestre,
+	TR.letra,
+	COUNT(*) AS 'alunos matriculados'
+FROM
+	Aluno AS AL JOIN
+	Turma AS TR ON AL.id_turma = TR.id JOIN
+	DisciplinaOfertada AS DO ON TR.id = DO.id_turma JOIN
+	Curso AS CR ON TR.id_curso = CR.id
+GROUP BY
+	CR.sigla,
+	TR.semestre,
+	TR.letra
+HAVING
+	COUNT(*) < 30
+
+---------------------------------------------------------------------------------------------------------
+
+SELECT
+	CR.sigla,
+	TR.semestre,
+	TR.letra,
+	PR.apelido AS 'Primeiro Nome'
+FROM
+	Aluno AS AL JOIN
+	Turma AS TR ON AL.id_turma = TR.id JOIN
+	DisciplinaOfertada AS DO ON TR.id = DO.id_turma JOIN
+	Curso AS CR ON TR.id_curso = CR.id JOIN
+	Professor AS PR ON DO.id_professor = PR.id JOIN
+	Disciplina AS DI ON PR.id = DI.id_professor_responsavel
+GROUP BY
+	CR.sigla,
+	TR.semestre,
+	TR.letra,
+	PR.apelido
+
+--------------------------------------------------------------------------------------------------------------------------
+
+SELECT
+	CR.sigla,
+	TR.semestre,
+	TR.letra
+FROM
+	Aluno AS AL JOIN
+	Turma AS TR ON AL.id_turma = TR.id JOIN
+	DisciplinaOfertada AS DO ON TR.id = DO.id_turma JOIN
+	Curso AS CR ON TR.id_curso = CR.id JOIN
+	SolicitacaoMatricula AS SM ON DO.id = SM.id_disciplina JOIN
+	Usuario AS US ON AL.id_usuario = US.id
+
+GROUP BY
+	CR.sigla,
+	TR.semestre,
+	TR.letra
+WHERE
+	
